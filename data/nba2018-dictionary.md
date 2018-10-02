@@ -50,4 +50,6 @@ goal (percentage)
 	- points: total points
 
 Missing values are coded as blanks for colleges and NA for all other 
-variables. 
+variables. All data are taken from www.basketball-reference.com. A sample 
+link, say for the Golden State Warriors, would be accessible at 
+https://www.basketball-reference.com/teams/GSW/2018/html 
