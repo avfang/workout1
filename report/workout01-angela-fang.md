@@ -24,7 +24,7 @@ ggplot(df,aes(x=reorder(team,salary), y=salary))+
 
 ![](workout01-angela-fang_files/unnamed-chunk-2-1.png)
 
-We ordered the teams based on their player aggregate salary. The vertical line signals the average across all team salaries. Based on this chart, PHI (*) would be ranked last, and CLE (*) would be ranked first. However, the graphic above is only one way of ranking the teams. We can also look from a different angle and use their aggregate points to evaluate their relative rankings:
+We ordered the teams based on their player aggregate salary. The vertical line signals the average across all team salaries. Based on this chart, PHI (Philadelphia Eagles) would be ranked last, and CLE (Cleveland Cavaliers) would be ranked first. However, the graphic above is only one way of ranking the teams. We can also look from a different angle and use their aggregate points to evaluate their relative rankings:
 
 ``` r
 ggplot(df,aes(x=reorder(team,points), y=points))+
@@ -36,7 +36,7 @@ ggplot(df,aes(x=reorder(team,points), y=points))+
 
 ![](workout01-angela-fang_files/unnamed-chunk-3-1.png)
 
-Depending on how we measure the teams, their rankings change. The visual above ranks SAC (*) as last and GSW(*) as first, as opposed to the first graphic. The vertical line here displays the average total points across teams as a reference point. We can further validate our point by evaluating the teams with another metric. Using the efficiency index, we can too evaluate the teams:
+Depending on how we measure the teams, their rankings change. The visual above ranks SAC (Sacramento Kings) as last and GSW (Golden State Warriors) as first, as opposed to the first graphic. The vertical line here displays the average total points across teams as a reference point. We can further validate our point by evaluating the teams with another metric. Using the efficiency index, we can too evaluate the teams:
 
 ``` r
 ggplot(df,aes(x=reorder(team,efficiency), y=efficiency))+
@@ -48,7 +48,7 @@ ggplot(df,aes(x=reorder(team,efficiency), y=efficiency))+
 
 ![](workout01-angela-fang_files/unnamed-chunk-4-1.png)
 
-Here we see again that the rankings change. Based on team efficiency index, CLE (*) is ranked first, and LAL (*) is ranked last.
+Here we see again that the rankings change. Based on team efficiency index, LAL (Lose Angeles Lakers) is ranked last, and CLE (Cleveland Cavaliers) is ranked first. The average is once again represented by a vertical line.
 
 Let us see what happens when we apply our own ranking equation. We can focus on actions that benefit or set back the team to measure teamwork. Adding beneficial actions and subtracting unhelpful actions, we get:
 
@@ -68,7 +68,7 @@ ggplot(df,aes(x=reorder(team,teamwork), y=teamwork))+
 
 ![](workout01-angela-fang_files/unnamed-chunk-6-1.png)
 
-With this index that we created, GSW (Golden State Warriors) is again ranked top, and SAC (\_) is not ranked bottom.
+With this index that we created, SAC (Sacramento Kings) is once again ranked bottom, and GSW (Golden State Warriors) is again ranked top. Once again, the vertical line represents the industry average.
 
 Comments and Reflections
 ========================

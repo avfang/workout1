@@ -13,7 +13,6 @@ library(readr)
 library(ggplot2)
 library(dplyr)
 library(knitr)
-opts_chunk$set(cache=T)
 ```
 
 # Ranking 2018 NBA Teams
@@ -32,7 +31,7 @@ ggplot(df,aes(x=reorder(team,salary), y=salary))+
   geom_hline(aes(yintercept=mean(df$salary)), color="coral", size=2, alpha=0.6)
 ```
 
-We ordered the teams based on their player aggregate salary. The vertical line signals the average across all team salaries. Based on this chart, PHI (_) would be ranked last, and CLE (_) would be ranked first. However, the graphic above is only one way of ranking the teams. We can also look from a different angle and use their aggregate points to evaluate their relative rankings:
+We ordered the teams based on their player aggregate salary. The vertical line signals the average across all team salaries. Based on this chart, PHI (Philadelphia Eagles) would be ranked last, and CLE (Cleveland Cavaliers) would be ranked first. However, the graphic above is only one way of ranking the teams. We can also look from a different angle and use their aggregate points to evaluate their relative rankings:
 ```{r}
 ggplot(df,aes(x=reorder(team,points), y=points))+
   geom_bar(stat='identity', alpha=0.75, fill="grey")+
@@ -41,7 +40,7 @@ ggplot(df,aes(x=reorder(team,points), y=points))+
   geom_hline(aes(yintercept=mean(df$points)), color="turquoise", size=2, alpha=0.6)
 ```
 
-Depending on how we measure the teams, their rankings change. The visual above ranks SAC (_) as last and GSW(_) as first, as opposed to the first graphic. The vertical line here displays the average total points across teams as a reference point. We can further validate our point by evaluating the teams with another metric. Using the efficiency index, we can too evaluate the teams:
+Depending on how we measure the teams, their rankings change. The visual above ranks SAC (Sacramento Kings) as last and GSW (Golden State Warriors) as first, as opposed to the first graphic. The vertical line here displays the average total points across teams as a reference point. We can further validate our point by evaluating the teams with another metric. Using the efficiency index, we can too evaluate the teams:
 ```{r}
 ggplot(df,aes(x=reorder(team,efficiency), y=efficiency))+
   geom_bar(stat='identity', alpha=0.75, fill="grey")+
@@ -50,7 +49,7 @@ ggplot(df,aes(x=reorder(team,efficiency), y=efficiency))+
   geom_hline(aes(yintercept=mean(df$efficiency)), color="gold", size=2, alpha=0.6)
 ```
 
-Here we see again that the rankings change. Based on team efficiency index, CLE (_) is ranked first, and LAL (_) is ranked last. 
+Here we see again that the rankings change. Based on team efficiency index, LAL (Lose Angeles Lakers) is ranked last, and CLE (Cleveland Cavaliers) is ranked first. The average is once again represented by a vertical line.
 
 Let us see what happens when we apply our own ranking equation. We can focus on actions that benefit or set back the team to measure teamwork. Adding beneficial actions and subtracting unhelpful actions, we get:
 ```{r}
@@ -66,7 +65,7 @@ ggplot(df,aes(x=reorder(team,teamwork), y=teamwork))+
   geom_hline(aes(yintercept=mean(df$teamwork)), color="green", size=2, alpha=0.6)
 ```
 
-With this index that we created, GSW (Golden State Warriors) is again ranked top, and SAC (_) is not ranked bottom.
+With this index that we created, SAC (Sacramento Kings) is once again ranked bottom, and GSW (Golden State Warriors) is again ranked top. Once again, the vertical line represents the industry average.
 
 # Comments and Reflections
 
