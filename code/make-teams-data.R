@@ -7,8 +7,8 @@ library(knitr)
 
 # Data Preparation
 # Description: Preparing 2018 NBA team data from 2018 NBA individual data
-# inputs
-# outputs
+# inputs: nba2018.csv
+# outputs: nba2018-teams.csv, efficiency-summary-txt, teams-summary.txt
 
 #load data
 df <- read.csv("../data/nba2018.csv", stringsAsFactors = FALSE)
