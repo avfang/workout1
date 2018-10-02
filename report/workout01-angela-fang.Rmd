@@ -1,0 +1,56 @@
+---
+title: "workout01-angela-fang"
+author: "Angela Fang"
+date: "October 1, 2018"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,fig.path="../workout01-angela-fang_files/")
+rm(list=ls())
+library(pacman)
+library(readr)
+library(ggplot2)
+library(dplyr)
+library(knitr)
+opts_chunk$set(cache=T)
+```
+
+# Ranking 2018 NBA Teams
+
+Before we begin with making our graphics, let us first load the data set that we will be using:
+```{r}
+df <- read.csv("../data/nba2018-teams.csv", stringsAsFactors = FALSE)
+```
+
+The first visual that we will create is one that ranks NBA team salaries against each other:
+```{r}
+ggplot(df,aes(x=reorder(team,salary), y=salary))+
+  geom_bar(stat='identity', alpha=0.75, fill="grey")+
+  coord_flip()+
+  labs(y="Salary (in millions)", x="Teams", title="NBA Teams ranked by Total Salary")+
+  geom_hline(aes(yintercept=mean(df$salary)), color="coral", size=2, alpha=0.6)
+```
+
+We ordered the teams based on their player aggregate salary. The vertical line signals the average across all team salaries. Based on this chart, PHI (_) would be ranked last, and CLE (_) would be ranked first. However, the graphic above is only one way of ranking the teams. We can also look from a different angle and use their aggregate points to evaluate their relative rankings:
+```{r}
+ggplot(df,aes(x=reorder(team,points), y=points))+
+  geom_bar(stat='identity', alpha=0.75, fill="grey")+
+  coord_flip()+
+  labs(y="Points", x="Teams", title="NBA Teams ranked by Total Points")+
+  geom_hline(aes(yintercept=mean(df$points)), color="turquoise", size=2, alpha=0.6)
+```
+
+Depending on how we measure the teams, their rankings change. The visual above ranks SAC (_) as last and GSW(_) as first, as opposed to the first graphic. The vertical line here displays the average total points across teams as a reference point. We can further validate our point by evaluating the teams with another metric. Using the efficiency index, we can too evaluate the teams:
+```{r}
+ggplot(df,aes(x=reorder(team,efficiency), y=efficiency))+
+  geom_bar(stat='identity', alpha=0.75, fill="grey")+
+  coord_flip()+
+  labs(y="Efficiency Index", x="Teams", title="NBA Teams ranked by Total Efficiency Index")+
+  geom_hline(aes(yintercept=mean(df$efficiency)), color="gold", size=2, alpha=0.6)
+```
+
+
+# Comments and Reflections
+
+
