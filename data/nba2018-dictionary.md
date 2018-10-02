@@ -3,14 +3,14 @@
 The data used in this assignment is that of 2018 NBA players and their 
 statistics. Some key notes about this data set:
 
-- Number of Rows:  
-- Number of Columns:  
+- Number of Rows: 477  
+- Number of Columns: 38  
 - Column Labels (from left to right):  
 	- player: first and last name of player  
 	- number: player jersey number  
 	- team: player team (represented by 
 three-letter abbreviation)  
-	- height: player height (in __ inches)  
+	- height: player height (in height-inches)  
 	- weight: player weight (in pounds)  
 	- birth_date: date of birth ("month day, year")  
 	- country: two-letter country abbreviation  
@@ -49,4 +49,5 @@ goal (percentage)
 	- fouls: fouls  
 	- points: total points
 
-Missing values are coded as __. 
+Missing values are coded as blanks for colleges and NA for all other 
+variables. 
