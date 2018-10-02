@@ -6,7 +6,7 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,fig.path="../workout01-angela-fang_files/")
+knitr::opts_chunk$set(echo = TRUE,fig.path="workout01-angela-fang_files/")
 rm(list=ls())
 library(pacman)
 library(readr)
@@ -50,7 +50,28 @@ ggplot(df,aes(x=reorder(team,efficiency), y=efficiency))+
   geom_hline(aes(yintercept=mean(df$efficiency)), color="gold", size=2, alpha=0.6)
 ```
 
+Here we see again that the rankings change. Based on team efficiency index, CLE (_) is ranked first, and LAL (_) is ranked last. 
+
+Let us see what happens when we apply our own ranking equation. We can focus on actions that benefit or set back the team to measure teamwork. Adding beneficial actions and subtracting unhelpful actions, we get:
+```{r}
+df <- mutate(df,
+             teamwork=off_rebounds+def_rebounds+steals+assists+steals+blocks-
+                                     turnovers-fouls)
+```
+```{r}
+ggplot(df,aes(x=reorder(team,teamwork), y=teamwork))+
+  geom_bar(stat='identity', alpha=0.75, fill="grey")+
+  coord_flip()+
+  labs(y="Teamwork Index", x="Teams", title="NBA Teams ranked by Total Teamwork Index")+
+  geom_hline(aes(yintercept=mean(df$teamwork)), color="green", size=2, alpha=0.6)
+```
+
+With this index that we created, GSW (Golden State Warriors) is again ranked top, and SAC (_) is not ranked bottom.
 
 # Comments and Reflections
 
+- Not really familiar with basketball, so had to do some research to create an index that made sense  
+- Still not really great with github. Linking the repositories was a bit troublesome  
+- Started out working with R via script. Definitely a lot easier as it doesn't need a narrative to go along with it (although in the past I've been the only one to use my own script)  
+- Out of all my assignments this actually took the least time  
 
