@@ -33,8 +33,8 @@ summary(df$efficiency)
 
 #create team summary then sink
 df1 <- summarize(group_by(df,team),
-          experience=sum(experience),
-          salary=sum(salary),
+          experience=round(sum(experience),2),
+          salary=round(sum(salary),2),
           points3=sum(points3),
           points2=sum(points2),
           points1=sum(points1),
